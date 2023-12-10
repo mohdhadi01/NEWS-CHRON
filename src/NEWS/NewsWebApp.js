@@ -3,29 +3,30 @@ import "../NEWS/NewsWebApp.css";
 import logo from "../Assets/logo.png";
 import search from "../Assets/search.png";
 import NewsCatalog from "./NewsCatalog";
+import arrow from '../Assets/down-arrow.gif'
 
 function NewsWebApp() {
-  // const APIKEY="5918713a2aea4266bebf24647190aaf1";
-  const [searchTerm, setSearchTerm] = useState("fifa");
-  const apiURL = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2023-11-10&sortBy=publishedAt&apiKey=5918713a2aea4266bebf24647190aaf1`;
+  const APIKEY="5918713a2aea4266bebf24647190aaf1";
+  const [searchTerm, setSearchTerm] = useState("al jazeera");
+  const apiURL = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2023-12-09&to=2023-12-09&sortBy=popularity&apiKey=${APIKEY}`;
   const [newsList, setNewsList] = useState([]);
   const searchRef = useRef(null);
-  const categoryRef=useRef(null);
 
   useEffect(() => {
-    fetchAPI();
-  }, [searchTerm]);
-
-  async function fetchAPI() {
-    try {
-      const reponse = await fetch(apiURL);
-      const jsonData = await reponse.json();
-
-      setNewsList(jsonData.articles);
-    } catch (e) {
-      console.log(e, "Error Occured");
+    async function fetchAPI() {
+      try {
+        const reponse = await fetch(apiURL);
+        const jsonData = await reponse.json();
+  
+        setNewsList(jsonData.articles);
+      } catch (e) {
+        console.log(e, "Error Occured");
+      }
     }
-  }
+    fetchAPI()
+  }, [searchTerm,apiURL]);
+
+
 
     function handleSearch(event){
       event.preventDefault();
@@ -36,7 +37,6 @@ function NewsWebApp() {
 
     function handleCategory(event){
       const selectedCategory=  event.target.value;
-      console.log(selectedCategory)
       setSearchTerm(selectedCategory);
     }
 
@@ -58,12 +58,12 @@ function NewsWebApp() {
           <div className="News-category">
                 <button className="typeMenu" value="Politics" onClick={handleCategory}>Politics</button>
                 <button className="typeMenu" value="Sports" onClick={handleCategory}>Sports</button>
-  			    <button className="typeMenu" value="Business" onClick={handleCategory}>Business</button>
-  			    <button className="typeMenu" value="Tech" onClick={handleCategory}>Tech</button>
-  				<button className="typeMenu" value="Science" onClick={handleCategory}>Science</button>
-  				<button className="typeMenu" value="Arts" onClick={handleCategory}>Arts</button>
-  				<button className="typeMenu" value="health" onClick={handleCategory}>Health</button>
-		 </div>
+  			        <button className="typeMenu" value="Business" onClick={handleCategory}>Business</button>
+  			        <button className="typeMenu" value="Tech" onClick={handleCategory}>Tech</button>
+  				      <button className="typeMenu" value="Science" onClick={handleCategory}>Science</button>
+  				      <button className="typeMenu" value="Arts" onClick={handleCategory}>Arts</button>
+  				      <button className="typeMenu" value="health" onClick={handleCategory}>Health</button>
+		      </div>
 
         </header>
         <main>
@@ -71,8 +71,10 @@ function NewsWebApp() {
             
           </div>
           <div className="title-Box">
-          <NewsCatalog passJsonData={newsList} />
+              <NewsCatalog passJsonData={newsList}  />
+              <img className="downarrow" src={arrow} alt="" />
           </div>
+        
         </main>
         
       </div>
