@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700,700italic);
+body {
+   background-image: url("https://img.freepik.com/free-vector/dark-futuristic-wavy-background_23-2148400277.jpg?w=1060&t=st=1702286775~exp=1702287375~hmac=58d3f8d5b7035684e8bfc4e67a0d2f65a0d4b248d09623033849de2d5dd19f99");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
 .imageStyle{
    height: 300px;
    width: 500px;
@@ -8,13 +13,13 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: #7e7675;
+   background-color: #5b5655af;
 }
 .content-box{
    padding: 40px;
    height: 95vh;
    width: 93vw;
-   background: radial-gradient(circle, rgb(42, 42, 42) 35%, rgba(79, 60, 47, 0.989) 100%);
+   background: radial-gradient(circle, rgba(42, 42, 42, 0.811) 35%, rgba(79, 60, 47, 0.989) 100%);
    border-radius: 40px;
 }
 .logo{
@@ -37,14 +42,14 @@ h1{
 }
 .typeMenu{
    border: 2px solid rgb(195, 194, 194);
-   padding: 2px 10px 3px 10px;
+   padding: 4px 10px 3px 10px;
    border-radius: 20px;
    cursor: pointer;
    background: none;
    color: white;
 }
 .typeMenu:focus{
-   border: 2px solid rgb(180, 87, 5);
+   border: 2px solid rgb(153, 74, 4);
 }
 .searchRow{
    display: flex;
@@ -60,11 +65,9 @@ h1{
    color: white;
    outline: none;
    font-family:monospace ;
-
 }
 .input-line{
    display: flex;
-
    border: 2px solid white;
    border-radius: 30px;
    margin-top: 40px;
@@ -86,22 +89,27 @@ main{
 .desc-Box{
    height: 58vh;
    width: 48vw;
-   border: 2px solid red;
+   /* border: 2px solid yellow; */
+   display: flex;
+   overflow-y: hidden;
+   /* overflow-x: scroll; */
+   /* border: 2px solid red; */
 }
 .title-Box{
    height: 58vh;
    width: 33vw;
    /* border: 2px solid rgb(0, 255, 76); */
    overflow-y: scroll;
+   overflow-x: hidden;
 }
 ::-webkit-scrollbar{
-	width: 5px;
+	width: 7px;
    height: 1px;
 	/* background-color: #0909094e;  */
 }
 
 ::-webkit-scrollbar-thumb{
-	background-color: #9a7e634c;
+	background-color: #d3b1914c;
 }
 /* ::-webkit-scrollbar-track{
 	background-color: #a69c9cd4;
@@ -112,5 +120,9 @@ main{
    position: absolute;
    bottom: 90px;
    right: 90px;
-
+}
+.desc-Box{
+   background-color: rgba(26, 24, 24, 0.53);
+   box-shadow:  29px 29px 75px #65646433,
+   -29px -29px 75px #6a5c5c17;
 }

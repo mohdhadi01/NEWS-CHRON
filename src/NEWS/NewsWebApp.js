@@ -4,10 +4,12 @@ import logo from "../Assets/logo.png";
 import search from "../Assets/search.png";
 import NewsCatalog from "./NewsCatalog";
 import arrow from '../Assets/down-arrow.gif'
+import MainNews from "./MainNews";
 
 function NewsWebApp() {
-  const APIKEY="5918713a2aea4266bebf24647190aaf1";
-  const [searchTerm, setSearchTerm] = useState("al jazeera");
+  // const APIKEY="5918713a2aea4266bebf24647190aaf1";
+  const APIKEY="94824cf2f9b2484191278b668fedee77";
+  const [searchTerm, setSearchTerm] = useState("Technology");
   const apiURL = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2023-12-09&to=2023-12-09&sortBy=popularity&apiKey=${APIKEY}`;
   const [newsList, setNewsList] = useState([]);
   const searchRef = useRef(null);
@@ -54,27 +56,26 @@ function NewsWebApp() {
               <img src={search} className="search-icon" alt="" onClick={handleSearch} />
             </div>
           </div>
-
           <div className="News-category">
-                <button className="typeMenu" value="Politics" onClick={handleCategory}>Politics</button>
-                <button className="typeMenu" value="Sports" onClick={handleCategory}>Sports</button>
+                <button className="typeMenu" value="Arts" onClick={handleCategory}>Arts</button>
+                <button className="typeMenu" value="Science" onClick={handleCategory}>Science</button>
   			        <button className="typeMenu" value="Business" onClick={handleCategory}>Business</button>
+                <button className="typeMenu" value="Sports" onClick={handleCategory}>Sports</button>
   			        <button className="typeMenu" value="Tech" onClick={handleCategory}>Tech</button>
-  				      <button className="typeMenu" value="Science" onClick={handleCategory}>Science</button>
-  				      <button className="typeMenu" value="Arts" onClick={handleCategory}>Arts</button>
+  				      
   				      <button className="typeMenu" value="health" onClick={handleCategory}>Health</button>
-		      </div>
+                <button className="typeMenu" value="gaming" onClick={handleCategory}>Gaming</button>
+          </div>
 
         </header>
         <main>
           <div className="desc-Box">
-            
+            <MainNews passJsonData={newsList} />
           </div>
           <div className="title-Box">
               <NewsCatalog passJsonData={newsList}  />
               <img className="downarrow" src={arrow} alt="" />
           </div>
-        
         </main>
         
       </div>
