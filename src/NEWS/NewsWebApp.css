@@ -105,7 +105,7 @@ main{
 ::-webkit-scrollbar{
 	width: 7px;
    height: 1px;
-	/* background-color: #0909094e;  */
+   	/* background-color: #0909094e;  */
 }
 
 ::-webkit-scrollbar-thumb{
