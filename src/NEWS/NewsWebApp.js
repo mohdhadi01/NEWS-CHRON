@@ -7,9 +7,9 @@ import arrow from '../Assets/down-arrow.gif'
 import MainNews from "./MainNews";
 import backgroundImage from "../Assets/background.jpg"
 
-function NewsWebApp() {
+function NewsWebApp(props) {
   document.body.style.backgroundImage = `url(${backgroundImage})`;
-  const APIKEY="94824cf2f9b2484191278b668fedee77";
+  const APIKEY=props.apiKey;
   const [searchTerm, setSearchTerm] = useState("ARTS");
   const apiURL = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2023-12-09&to=2023-12-09&sortBy=popularity&apiKey=${APIKEY}`;
   const [newsList, setNewsList] = useState([]);
