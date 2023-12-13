@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700,700italic);
 body {
-   background-image: url("https://img.freepik.com/free-vector/dark-futuristic-wavy-background_23-2148400277.jpg?w=1060&t=st=1702286775~exp=1702287375~hmac=58d3f8d5b7035684e8bfc4e67a0d2f65a0d4b248d09623033849de2d5dd19f99");
+   /* background-image: url("backgroundImage"); */
    background-repeat: no-repeat;
    background-size: cover;
 }

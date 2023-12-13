@@ -5,11 +5,13 @@ import search from "../Assets/search.png";
 import NewsCatalog from "./NewsCatalog";
 import arrow from '../Assets/down-arrow.gif'
 import MainNews from "./MainNews";
+import backgroundImage from "../Assets/background.jpg"
 
 function NewsWebApp() {
+  document.body.style.backgroundImage = `url(${backgroundImage})`;
   // const APIKEY="5918713a2aea4266bebf24647190aaf1";
   const APIKEY="94824cf2f9b2484191278b668fedee77";
-  const [searchTerm, setSearchTerm] = useState("Technology");
+  const [searchTerm, setSearchTerm] = useState("ARTS");
   const apiURL = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2023-12-09&to=2023-12-09&sortBy=popularity&apiKey=${APIKEY}`;
   const [newsList, setNewsList] = useState([]);
   const searchRef = useRef(null);

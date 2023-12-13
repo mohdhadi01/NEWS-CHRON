@@ -4,18 +4,18 @@
   width: 48vw;
   display: flex;
   flex-direction: column;
-  /* row-gap: 11px; */
   position: relative;
+  transition: ease-in-out 0.4s;
+
 }
 .mainScreen {
   display: flex;
-  /* justify-content: center; */
-  /* border: 2px solid beige; */
 }
 .mainImage {
   width: 48vw;
   height: 58vh;
   filter: brightness(35%);
+  
 }
 .details {
   position: absolute;
@@ -83,10 +83,11 @@
   /* border: 2px solid red; */
 }
 .next:hover {
-  background-color: rgba(73, 48, 1, 0.838);
+  background-color: rgba(0, 0, 0, 0.838);
   border-radius: 10px;
 }
 .prev:hover {
-  background-color: rgba(73, 48, 1, 0.838);
+  
+  background-color: rgba(2, 1, 0, 0.838);
   border-radius: 10px;
 }

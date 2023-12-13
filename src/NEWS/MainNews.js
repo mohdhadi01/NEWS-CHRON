@@ -5,27 +5,47 @@ import next from "../Assets/nextArrow.png";
 import previous from "../Assets/previousLogo.png";
 
 function MainNews(props) {
-  const newsList = props.passJsonData;
-  const refImageList = useRef(null);
-  const translatedistance = "48vw";
+
+    const newsList = props.passJsonData;
+    const refHii = useRef(null);
+    const scrollLength = "58";
+    let currentvalue =0;
+
+  function ShiftNews(){
+    let translatedistance = -currentvalue * scrollLength;
+    refHii.current.style.transform = `translateY(${translatedistance}vh)`;
+    
+  }
+  function nextClick(){
+    if (currentvalue < newsList.length - 50){
+    currentvalue++
+    ShiftNews()
+  }
+    // console.log("next Clicked")
+  }
+  function prevClick(){
+    if(currentvalue>0){
+    currentvalue--
+    ShiftNews()
+  }
+    // console.log("prev Clicked")
+  }
+
+
+
   const formatDate = (dateString) => {
     const options = { day: "2-digit", month: "2-digit", year: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  function prevNews(refImageList){
-    refImageList.style.transform= `translateY(${translatedistance}vw)`
-  }
-
   return (
-    <div className="hii">
+    <div className="hii" ref={refHii}>
       {newsList.map((news, i) => {
         if (news.title != null && news.urlToImage != null) {
           return (
             <>
               <div className="mainScreen">
                 <img
-                ref={refImageList}
                   className="mainImage"
                   key={i}
                   src={news.urlToImage}
@@ -49,8 +69,18 @@ function MainNews(props) {
                     <p className="Description">{news.content}</p>
                   </div>
                   <div className="control">
-                    <img onClick={prevNews} className="prev" src={previous} alt="" />
-                    <img  className="next" src={next} alt="" />
+                    <img
+                      onClick={prevClick}
+                      className="prev"
+                      src={previous}
+                      alt=""
+                    />
+                    <img
+                      onClick={nextClick}
+                      className="next"
+                      src={next}
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
