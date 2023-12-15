@@ -1,4 +1,4 @@
-### This version uses NEWSAPI.org which doesn't allow the deployement on vercel so an alternative version has been published on github you can enjoy it by visiting.
+# This version uses NEWSAPI.org which doesn't allow the deployement on vercel so an alternative version has been published on github you can enjoy it by visiting.
 --->  https://github.com/mohdhadi01/NEWS-CHRON-Production-Version
 
 
